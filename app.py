@@ -18,4 +18,6 @@ app.route("/neighborhoods/<int:id>", methods = ["GET"])(get_neighborhoods_by_id)
  # --- JOSÉ --- Rota UPDATE para o setor
 app.route("/sectors/<int:id>", methods=["PUT"])(put_sectors)
 
+#Teste
+
 app.run(debug=True)
