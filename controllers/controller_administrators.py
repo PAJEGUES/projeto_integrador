@@ -26,3 +26,15 @@ def set_administrators ():
     administrators.append(new_administrator)
 
     return jsonify(administrators)
+
+def del_administrators (id):
+
+    i = 0
+
+    for administrator in administrators:
+        if(id == administrator["id"]):
+            del administrators[i]
+            return jsonify(administrators)
+    i+=1
+    return ("Erro, Administrador não encontrado"), 404
+

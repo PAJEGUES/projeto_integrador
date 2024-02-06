@@ -40,3 +40,12 @@ def put_sectors (id):
             return jsonify(update_sectors)
         i+=1
     return jsonify("Erro: Setor não encontrado"), 404
+
+def get_sectors_by_id (id):
+
+    i = 0
+    for sector in sectors:
+        if(id == sector["id"]):
+            return jsonify(sectors[i])
+        i+=1
+    return ("Erro, Setor não encontrado"), 404

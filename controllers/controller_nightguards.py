@@ -135,7 +135,7 @@ def get_nightguards ():
     return jsonify (vector_id[start:end])  # Os dois pontos indicam "até", nesse caso, retorno do início até o fim 
 
 
-def night_guard ():
+def post_nightguards ():
     post_nightguards = request.get_json()
             
     if ('name' not in post_nightguards) or (post_nightguards ['name'] == ""):
