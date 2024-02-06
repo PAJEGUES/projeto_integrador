@@ -14,7 +14,20 @@ night_guards = [
         "formofpayment": "PIX",
         "dateofpayment": "05",
         "neighborhood": "Maria Estella Faga"
-    }
+    },
+
+    {
+        "name": "ROGER",
+        "vehicle": "CB-500",
+        "licenseplate": "RMR-1909",
+        "email": "roger.rocha@gmail.com",
+        "password": "cb123",
+        "cpf": "987.654.321.00",
+        "dateofbirth": "03/02/1980",
+        "formofpayment": "dinheiro",
+        "dateofpayment": "20",
+        "district": "Azulville"
+    }  
 ]
 
 def get_nightguards ():
@@ -120,3 +133,46 @@ def get_nightguards ():
             vector_id.append(night_guard)
 
     return jsonify (vector_id[start:end])  # Os dois pontos indicam "até", nesse caso, retorno do início até o fim 
+
+
+def night_guard ():
+    post_nightguards = request.get_json()
+            
+    if ('name' not in post_nightguards) or (post_nightguards ['name'] == ""):
+        return jsonify ("Erro: Incorrect login."), 400
+    
+    if ('vehicle' not in post_nightguards) or (post_nightguards ['vehicle'] == ""):
+        return jsonify ("Erro: Incorrect vehicle."), 400
+    
+    if ('licenseplate' not in post_nightguards) or (post_nightguards ['licenseplate'] == ""):
+        return jsonify ("Erro: Incorrect licenseplate."), 400
+    
+    if ('email' not in post_nightguards) or (post_nightguards ['password'] == ""):
+        return jsonify ("Erro: Incorrect password."), 400
+    
+    if ('password' not in post_nightguards) or (post_nightguards ['name'] == ""):
+        return jsonify ("Erro: Incorrect login."), 400
+    
+    if ('cpf' not in post_nightguards) or (post_nightguards ['cpf'] == ""):
+        return jsonify ("Erro: Incorrect cpf."), 400
+    
+    if ('dateofbirth' not in post_nightguards) or (post_nightguards ['dateofbirth'] == ""):
+        return jsonify ("Erro: Incorrect dateofbirth."), 400
+    
+    if ('formofpayment' not in post_nightguards) or (post_nightguards ['formofpayment'] == ""):
+        return jsonify ("Erro: Incorrect formofpayment."), 400
+    
+    if ('dateofpayment' not in post_nightguards) or (post_nightguards ['dateofpayment'] == ""):
+        return jsonify ("Erro: Incorrect dateofpayment."), 400
+    
+    if ('neighborhood' not in post_nightguards) or (post_nightguards ['district'] == ""):
+        return jsonify ("Erro: Incorrect neighborhood."), 400
+    
+    
+    for night_guard in night_guards:
+        if (post_nightguards['id'] == night_guards['id']):
+            return jsonify("Erro, um guarda noturno com esse id ja esta cadastrado!"), 409 
+
+    night_guards.append(post_nightguards)
+
+    return jsonify(night_guards)

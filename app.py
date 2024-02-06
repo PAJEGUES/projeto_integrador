@@ -1,13 +1,16 @@
 from flask import Flask, request
 from controllers.controller_administrators import set_administrators
 from controllers.controller_neighborhood import get_neighborhoods_by_id
-from controllers.controller_nightguards import get_nightguards
+from controllers.controller_nightguards import post_nightguards, get_nightguards
 from controllers.controller_sectors import put_sectors
 
 app = Flask(__name__)
 
 # --- JOSÉ --- Rota POST para a criação de um ADMINISTRADOR
 app.route("/administrators", methods=["POST"])(set_administrators)
+
+# --- ROGÉRIO --- Rota POST Nightguard
+@app.route("/night_guard", methods=["POST"])(post_nightguards)
 
 # --- JOSÉ --- Rota GET para a leitura geral dos guardas noturnos
 app.route("/nightguard", methods=["GET"])(get_nightguards)

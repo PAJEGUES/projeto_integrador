@@ -1,0 +1,44 @@
+### ADMINISTRATORS - Rota de POST.
+POST  http://127.0.0.1:5000/administrators HTTP/1.1
+Content-Type: application/json
+
+{
+        "login": "adm",
+        "id": 2,
+        "password": "adm"
+}
+
+### NIGHTGUARD - Rota de POST para CRIAÇÃO dos guardas.
+POST http://127.0.0.1:5000/night_guard HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "ROGER",
+    "vehicle": "CB-500",
+    "licenseplate": "RMR-1909",
+    "email": "roger.rocha@gmail.com",
+    "password": "cb123",
+    "cpf": "987.654.321.00",
+    "dateofbirth": "03/02/1980",
+    "formofpayment": "dinheiro",
+    "dateofpayment": "20",
+    "district": "Azulville"
+}
+
+### NIGHTGUARD - Rota de GET para TODOS os guardas.
+GET http://127.0.0.1:5000/nightguard?page=1&limit=6 HTTP/1.1
+Content-Type: application/json
+
+### NEIGHBORHOODS - Rota de GET para um UNICO Bairro
+GET http://127.0.0.1:5000/neighborhoods/1 HTTP/1.1
+Content-Type: application/json
+
+### SECTORS - Rota de PUT para os Setores
+PUT http://127.0.0.1:5000/sectors/1 HTTP/1.1
+Content-Type: application/json
+
+{
+        "id": 5,
+        "nightguard_name": "Ailson",
+        "sector_name": "Setor 5"
+}
