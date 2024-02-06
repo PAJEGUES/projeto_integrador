@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### NIGHTGUARD - Rota de POST para CRIAÇÃO dos guardas.
-POST http://127.0.0.1:5000/night_guard HTTP/1.1
+POST http://127.0.0.1:5000/post_nightguard HTTP/1.1
 Content-Type: application/json
 
 {
@@ -26,7 +26,7 @@ Content-Type: application/json
 }
 
 ### NIGHTGUARD - Rota de GET para TODOS os guardas.
-GET http://127.0.0.1:5000/nightguard?page=1&limit=6 HTTP/1.1
+GET http://127.0.0.1:5000/get_nightguard?page=1&limit=6 HTTP/1.1
 Content-Type: application/json
 
 ### NEIGHBORHOODS - Rota de GET para um UNICO Bairro

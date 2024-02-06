@@ -10,10 +10,10 @@ app = Flask(__name__)
 app.route("/administrators", methods=["POST"])(set_administrators)
 
 # --- ROGÉRIO --- Rota POST Nightguard
-@app.route("/night_guard", methods=["POST"])(post_nightguards)
+app.route("/post_nightguard", methods=["POST"])(post_nightguards)
 
 # --- JOSÉ --- Rota GET para a leitura geral dos guardas noturnos
-app.route("/nightguard", methods=["GET"])(get_nightguards)
+app.route("/get_nightguard", methods=["GET"])(get_nightguards)
 
 # --- JOSÉ --- Rota GET de um UNICO bairro 
 app.route("/neighborhoods/<int:id>", methods = ["GET"])(get_neighborhoods_by_id)
