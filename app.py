@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request
 from controllers.controller_administrators import set_administrators
 from controllers.controller_neighborhood import get_neighborhoods_by_id
 from controllers.controller_nightguards import get_nightguards
@@ -17,7 +17,5 @@ app.route("/neighborhoods/<int:id>", methods = ["GET"])(get_neighborhoods_by_id)
 
  # --- JOSÉ --- Rota UPDATE para o setor
 app.route("/sectors/<int:id>", methods=["PUT"])(put_sectors)
-
-#Teste
 
 app.run(debug=True)
