@@ -18,4 +18,14 @@ app.route("/neighborhoods/<int:id>", methods = ["GET"])(get_neighborhoods_by_id)
  # --- JOSÉ --- Rota UPDATE para o setor
 app.route("/sectors/<int:id>", methods=["PUT"])(put_sectors)
 
+
+@app.route("/neighborhood/<int:id>", methods = ["DELETE"]) # Rota DELETE   
+def del_neighborhood (id):
+
+    for x in enumerate(neighborhoods):
+        if(id == neighborhoods["id"]):
+            del neighborhoods[id]
+            return jsonify(neighborhoods)
+    return ("Erro, Bairro não encontrado"), 404
+
 app.run(debug=True)
