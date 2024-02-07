@@ -28,6 +28,22 @@ sectors = [
 ]
 
 
+def set_sectors ():
+
+    new_sector = request.get_json()
+
+    if ('nightguard_id' not in new_sector) or (not new_sector['nightguard_id']):
+          return jsonify({"error":"Não tem nightguard_id"}), 400
+    
+    for sector in sectors:
+        if (new_sector['id'] == sector['id']):
+            return jsonify("Erro, um setor com esse id ja esta cadastrado!"), 409 
+
+    sectors.append(new_sector)
+
+    return jsonify(sectors)
+
+
 def put_sectors (id):
 
     update_sectors = request.get_json()
