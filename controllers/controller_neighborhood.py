@@ -51,3 +51,14 @@ def get_neighborhoods_by_id (id):
             return jsonify(neighborhoods[i])
         i+=1
     return ("Erro, Bairro não encontrado"), 404
+
+
+def delete_neighborhoods_by_id (id):
+
+    i = 0
+    for neighborhood in neighborhoods:
+        if(id == neighborhood["id"]):
+            del neighborhoods[i]
+            return jsonify(neighborhoods)
+        i+=1
+    return ("Erro, Bairro não encontrado"), 404

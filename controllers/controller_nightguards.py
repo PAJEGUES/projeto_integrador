@@ -176,3 +176,17 @@ def post_nightguards ():
     night_guards.append(post_nightguards)
 
     return jsonify(night_guards)
+
+def put_night_guards (id):
+
+    update_night_guards = request.get_json()
+
+    i = 0
+
+    for night_guard in night_guards: 
+        if (id == night_guard["id"]):
+            night_guards[i].update(update_night_guards)
+            return jsonify(update_night_guards)
+        i+=1
+    return jsonify("Erro: Setor não encontrado"), 404
+
