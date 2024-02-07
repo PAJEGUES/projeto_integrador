@@ -27,6 +27,29 @@ def set_administrators ():
 
     return jsonify(administrators)
 
+def get_administrators_by_id(id):
+    i = 0
+    for administrator in administrators:
+        if(id == administrator["id"]):
+            return jsonify(administrators[i])
+        
+        i+=1
+
+    return ({"Erro": "Administrador não encontrado"}), 404
+
+def put_administrators (id):
+
+    update_administrators = request.get_json()
+
+    i = 0
+
+    for administrator in administrators: 
+        if (id == administrator["id"]):
+            administrators[i].update(update_administrators)
+            return jsonify(update_administrators)
+        i+=1
+    return jsonify("Erro:administrador não encontrado"), 404
+
 def del_administrators (id):
 
     i = 0
@@ -37,14 +60,4 @@ def del_administrators (id):
             return jsonify(administrators)
     i+=1
     return ("Erro, Administrador não encontrado"), 404
-
-def get_administrators_by_id(id):
-    i = 0
-    for administrator in administrators:
-        if(id == administrator["id"]):
-            return jsonify(administrators[i])
-        
-        i+=1
-
-    return ({"Erro": "Administrador não encontrado"}), 404
 

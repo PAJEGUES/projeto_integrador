@@ -190,3 +190,13 @@ def put_night_guards (id):
         i+=1
     return jsonify("Erro: Setor não encontrado"), 404
 
+
+def delete_night_guards_by_id (id):
+ 
+    i = 0
+    for night_guard in night_guards:
+        if(id == night_guard["id"]):
+            del night_guards[i]
+            return jsonify(night_guards)
+        i+=1
+    return ("Erro, Guarda Noturno não encontrado"), 404

@@ -8,6 +8,24 @@ neighborhoods = [
     }
 ]
 
+## Rota POST Bairros 
+
+def set_neighborhoods():
+ 
+    new_neighborhood  = request.get_json()
+ 
+    if ('neighborhood_name' not in new_neighborhood ) or (not new_neighborhood ['neighborhood_name']):
+          return jsonify({"error":"Não tem neighborhood_name"}), 400
+   
+    for neighborhood in neighborhoods :
+        if (new_neighborhood ['id'] == neighborhood['id']):
+            return jsonify("Erro, um bairro com esse id ja esta cadastrado!"), 409
+ 
+    neighborhoods.append(new_neighborhood)
+ 
+    return jsonify(neighborhoods)
+
+
 def get_neighborhood ():
 
     neighborhood_name = request.args.get("neighborhood_name", None)
