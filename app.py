@@ -13,50 +13,6 @@ app.register_blueprint(bp_sectors)
 
 app.run(debug=True)
 
-# Rota DELETE para o guarda noturno
-app.route("/night_guards/<int:id>", methods=["DELETE"])
-
-# Rota POST Bairros
-app.route("/neighborhoods", methods=["POST"])
-
-# Rota GET para a leitura geral dos setores
-app.route("/sector", methods=["GET"]) # Rota GET
-
-    if page and limit:
-        start = limit * (page - 1)
-        end = start + limit
- 
-    vector_sector_name = []
-    vector_nightguard_name = []
-    vector_id = []
- 
- 
-    for sector in sectors:
- 
-        if nightguard_name and nightguard_name == sector ["nightguard_name"]:
-            vector_nightguard_name.append(sector)
-        elif not nightguard_name:
-            vector_nightguard_name.append(sector)
- 
-    for sector in vector_nightguard_name:
- 
-        if sector_name and sector_name == sector ["sector_name"]:
-            vector_sector_name.append(sector)
-        elif not sector_name:
-            vector_sector_name.append(sector)
- 
-    for sector in vector_sector_name:
- 
-        if id and id == sector ["id"]:
-            vector_id.append(sector)
-        elif not id:
-            vector_id.append(sector)
- 
-    if page and limit:
-        return jsonify (vector_id[start:end])
-    else: 
-        return jsonify (vector_id)
-
 ## Rotas Ailson
 
 # Rota GET para a leitura geral dos administradores
