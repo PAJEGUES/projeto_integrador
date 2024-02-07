@@ -1,5 +1,5 @@
 from flask import Blueprint
-from controllers.controller_administrators import get_administrators_by_id, set_administrators, del_administrators, put_administrators
+from controllers.controller_administrators import get_administrators_by_id, set_administrators, put_administrators, del_administrators 
 
 bp_administrators= Blueprint ("bp_administrators",__name__)
 

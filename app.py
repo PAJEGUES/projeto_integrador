@@ -13,24 +13,14 @@ app.register_blueprint(bp_sectors)
 
 app.run(debug=True)
 
-
-# Rota POST Nightguard
-app.route("/post_nightguard", methods=["POST"])(post_nightguards)
-
 # Rota DELETE para o guarda noturno
 app.route("/night_guards/<int:id>", methods=["DELETE"])
 
 # Rota POST Bairros
 app.route("/neighborhoods", methods=["POST"])
 
-# Rota GET para todos os bairros
-app.route("/get_neighborhood", methods=["GET"])(get_neighborhood)
-
 # Rota GET para a leitura geral dos setores
 app.route("/sector", methods=["GET"]) # Rota GET
-
-# Rota GET para um UNICO setor
-app.route("/sectors/<int:id>", methods = ["GET"])(get_sectors_by_id)
 
     if page and limit:
         start = limit * (page - 1)
