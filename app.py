@@ -13,22 +13,7 @@ app.register_blueprint(bp_sectors)
 
 app.run(debug=True)
 
-## Rotas Ailson
 
-# Rota GET para a leitura geral dos administradores
-
-
-
-    
-# Rota GET de um UNICO Guarda
-
-
-
- # Rota UPDATE para o bairro
-
-
-
-# Rota DELETE para o setor
 
 
  
