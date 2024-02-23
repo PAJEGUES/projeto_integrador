@@ -111,3 +111,13 @@ def get_sectors_by_id (id):
             return jsonify(sectors[i])
         i+=1
     return ("Erro, Setor não encontrado"), 404
+
+def delete_sectors_by_id (id):
+ 
+    i = 0
+    for sector in sectors:
+        if(id == sector["id"]):
+            del sectors[i]
+            return jsonify(sectors)
+        i+=1
+    return ("Erro, Setor não encontrado"), 404

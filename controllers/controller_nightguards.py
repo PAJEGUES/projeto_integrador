@@ -200,3 +200,14 @@ def delete_night_guards_by_id (id):
             return jsonify(night_guards)
         i+=1
     return ("Erro, Guarda Noturno não encontrado"), 404
+
+def get_night_guards_by_id (id):
+
+    i = 0
+    for night_guard in night_guards:
+        if(id == night_guard["id"]):
+            return jsonify(night_guards[i])
+        i+=1
+    return ("Erro, Guarda noturno não encontrado"), 404
+
+
