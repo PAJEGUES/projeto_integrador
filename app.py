@@ -3,15 +3,34 @@ from routes.route_administrators import bp_administrators
 from routes.route_neighborhoods import bp_neighborhoods
 from routes.route_night_guards import bp_night_guards
 from routes.route_sectors import bp_sectors
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 
-app = Flask(__name__)
+db = SQLAlchemy()
+migrate = Migrate()
 
-app.register_blueprint(bp_administrators)
-app.register_blueprint(bp_neighborhoods)
-app.register_blueprint(bp_night_guards)
-app.register_blueprint(bp_sectors)
+def create_app():
 
-app.run(debug=True)
+    from routes.route_administrators import bp_administrators
+    from routes.route_neighborhoods import bp_neighborhoods
+    from routes.route_night_guards import bp_night_guards
+    from routes.route_sectors import bp_sectors 
+
+    app = Flask(__name__)
+
+    app.register_blueprint(bp_administrators)
+    app.register_blueprint(bp_neighborhoods)
+    app.register_blueprint(bp_night_guards)
+    app.register_blueprint(bp_sectors)
+
+    app.config['SQLALCHEMY_DATABASE_URI'] = ''
+
+    db.init_app(app)
+    migrate.init_app(app,db)
+
+    return app
+
+
 
 
 
