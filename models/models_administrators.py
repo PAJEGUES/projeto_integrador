@@ -17,4 +17,6 @@ class Administrators (db.Model):
         id = json_data.get('id')
         login = json_data.get('login')
         password = json_data.get('password')
+        return Administrators (id=id, login=login, password=password)
+
 
