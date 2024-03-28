@@ -1,6 +1,6 @@
 from app import db 
 
-class Administrators (db.Model):
+class Administrator (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(255), nullable=False)
     password = db.Column(db.String(255), nullable=False)
