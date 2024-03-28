@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from app import db
+from models.models_sector import Sector
 
 sectors = [
     {
@@ -74,7 +75,9 @@ def get_sectors ():
         return jsonify (vector_id[start:end])
     else: 
         return jsonify (vector_id)
-
+    
+    
+# rota POST
 def set_sector():
     Model_sector= request.get_json()
 
@@ -99,14 +102,16 @@ def put_sectors (id):
         i+=1
     return jsonify("Erro: Setor não encontrado"), 404
 
-def get_sectors_by_id (id):
 
-    i = 0
-    for sector in sectors:
-        if(id == sector["id"]):
-            return jsonify(sectors[i])
-        i+=1
-    return ("Erro, Setor não encontrado"), 404
+# rota GET
+def get_sectors ():
+    sectors = Sector.query.all()
+
+    return jsonify ([Sector.to_json()for sector in sectors])
+
+
+
+      
 
 def delete_sectors_by_id (id):
  
