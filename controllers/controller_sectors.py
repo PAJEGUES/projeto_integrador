@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from app import db
 
 sectors = [
     {
@@ -74,20 +75,15 @@ def get_sectors ():
     else: 
         return jsonify (vector_id)
 
-def set_sectors ():
+def set_sector():
+    Model_sector= request.get_json()
 
-    new_sector = request.get_json()
+    o_sector = Model_sector.from_json(Model_sector)
+    db.session.add(o_sector)
+    db.session.commit()
 
-    if ('nightguard_id' not in new_sector) or (not new_sector['nightguard_id']):
-          return jsonify({"error":"Não tem nightguard_id"}), 400
-    
-    for sector in sectors:
-        if (new_sector['id'] == sector['id']):
-            return jsonify("Erro, um setor com esse id ja esta cadastrado!"), 409 
+    return jsonify(o_sector.to_json())
 
-    sectors.append(new_sector)
-
-    return jsonify(sectors)
 
 
 def put_sectors (id):
