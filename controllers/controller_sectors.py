@@ -78,7 +78,7 @@ def get_sectors ():
     
     
 # rota POST
-def set_sector():
+def set_sectors():
     Model_sector= request.get_json()
 
     o_sector = Model_sector.from_json(Model_sector)

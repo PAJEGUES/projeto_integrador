@@ -1,6 +1,4 @@
 from app import db
-from flask import Flask ,request , jsonify 
-from models_sector import Sector
 
 class Sector (db.Model):
     id = db.Column(db.Integer, primary_key=True)
