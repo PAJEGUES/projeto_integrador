@@ -1,8 +1,8 @@
 from app import db
 from flask import Flask ,request , jsonify 
-from models_sector import sector
+from models_sector import Sector
 
-class Sectors (db.Model):
+class Sector (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     neighborhood_name = db.Column(db.String(255), nullable=False)
     sector_name = db.Column(db.String(255), nullable=False)
@@ -18,10 +18,10 @@ class Sectors (db.Model):
     @staticmethod
     def from_json(json_data):
         id = json_data.get('id')
-        neighborhood_name = json_data.get('bairro')
-        sector_name  = json_data.get('setor') 
-        
-        return Sectors (id=id, neighborhood_name=neighborhood_name, sector_name=sector_name)
+        neighborhood_name = json_data.get('neighborhood_name')
+        sector_name  = json_data.get('sector_name') 
+
+        return Sector (id=id, neighborhood_name=neighborhood_name, sector_name=sector_name)
         
 
 
