@@ -19,7 +19,7 @@ def create_app():
     app.register_blueprint(bp_night_guards)
     app.register_blueprint(bp_sectors)
 
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adm:Adm12345@10.60.46.36/projetoDesktop'
+    app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adm:Adm12345!@10.60.46.36/projetoDesktop'
 
     db.init_app(app)
     migrate.init_app(app,db)
