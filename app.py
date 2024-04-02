@@ -1,8 +1,4 @@
 from flask import Flask, request
-from routes.route_administrators import bp_administrators
-from routes.route_neighborhoods import bp_neighborhoods
-from routes.route_night_guards import bp_night_guards
-from routes.route_sectors import bp_sectors
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 

@@ -75,7 +75,7 @@ def get_sectors ():
     else: 
         return jsonify (vector_id)
 
-def set_sector():
+def set_sectors():
     Model_sector= request.get_json()
 
     o_sector = Model_sector.from_json(Model_sector)
