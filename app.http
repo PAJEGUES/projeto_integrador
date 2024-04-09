@@ -1,14 +1,35 @@
-###########################################################
-### ROTAS POSTS
-### ADMINISTRATORS - Rota de POST.
+### ROTAS ADMINISTRATORS 
+
+### POSTS
 POST  http://127.0.0.1:5000/administrators HTTP/1.1
 Content-Type: application/json
 
 {
-        "login": "adm",
-        "id": 50,
+        "login": "ailson",
+        "id": 2,
         "password": "adm"
 }
+
+### DELETE
+DELETE http://127.0.0.1:5000/administrators/1 HTTP/1.1
+Content-Type: application/json
+
+### GET 
+GET http://127.0.0.1:5000/administrators HTTP/1.1
+Content-Type: application/json
+
+### PUT 
+PUT http://127.0.0.1:5000/administrators/50 HTTP/1.1
+Content-Type: application/json
+
+{
+        "login": "Ailson",
+        "password": "1010"
+        
+        
+}
+###########################################################
+
 
 ### NIGHTGUARD - Rota de POST para CRIAÇÃO dos guardas.
 POST http://127.0.0.1:5000/post_nightguard HTTP/1.1
@@ -69,8 +90,5 @@ Content-Type: application/json
 
 ###########################################################
 ### ROTAS DELETE
-### ADMINISTRATORS - Rota de DELETE para um ADMINISTRADOR
-DELETE http://127.0.0.1:5000/administrators/1 HTTP/1.1
-Content-Type: application/json
 
-###########################################################
+

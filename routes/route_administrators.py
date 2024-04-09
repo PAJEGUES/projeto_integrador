@@ -11,4 +11,4 @@ bp_administrators.route("/administrators/<int:id>", methods = ["DELETE"])(del_ad
 
 bp_administrators.route("/administrators/<int:id>", methods=["PUT"])(put_administrators)
 
-bp_administrators.route("/administrator", methods=["GET"])(get_administrators) 
+bp_administrators.route("/administrators", methods=["GET"])(get_administrators) 
