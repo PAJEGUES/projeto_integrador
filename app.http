@@ -1,5 +1,5 @@
 
-#==================== ROTAS ADMINISTRATORS ====================# 
+#========================= ROTAS ADMINISTRATORS =========================# 
 
 ### POSTS
 POST  http://127.0.0.1:5000/administrators HTTP/1.1
