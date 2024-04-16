@@ -1,5 +1,5 @@
 from flask import Blueprint
-from controllers.controller_neighborhood import get_neighborhood, get_neighborhoods_by_id, delete_neighborhoods_by_id, set_neighborhoods,put_neighborhoods
+from controllers.controller_neighborhood import get_neighborhood, delete_neighborhoods_by_id, set_neighborhoods,put_neighborhoods
 
 bp_neighborhoods = Blueprint ("bp_neighborhoods",__name__)
 
