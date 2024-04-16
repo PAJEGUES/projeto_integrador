@@ -96,8 +96,10 @@ def get_sectors ():
 
 
 # ROTA Delete 
+def delete_sectors_by_id(id):
 
     return jsonify ("Setor deletado com sucesso"),200
+
 
 # rota PUT
 def put_sectors (night_guard,neighborhood):
