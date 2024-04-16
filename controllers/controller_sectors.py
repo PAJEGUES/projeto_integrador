@@ -1,8 +1,6 @@
 from flask import Flask, request, jsonify
 from app import db
 from models.models_sector import Sector
-<<<<<<< HEAD
-=======
 
 sectors = [
     {
@@ -44,7 +42,7 @@ def get_sectors ():
     if limit: limit = int (limit)
 
     if page and limit:
-        start = limit * (page - 1) from routes.route_neighborhoods import bp_neighborhoods
+        start = limit * (page - 1) 
         end = start + limit
  
     vector_sector_name = []
@@ -78,7 +76,6 @@ def get_sectors ():
     else: 
         return jsonify (vector_id)
     
->>>>>>> origin/main
     
 # rota POST
 def set_sectors():
