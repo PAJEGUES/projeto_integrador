@@ -1,16 +1,39 @@
-###########################################################
-### ROTAS POSTS
-### ADMINISTRATORS - Rota de POST.
+
+#========================= ROTAS ADMINISTRATORS =========================# 
+
+### POSTS
 POST  http://127.0.0.1:5000/administrators HTTP/1.1
 Content-Type: application/json
 
 {
-        "login": "adm",
-        "id": 50,
+        "login": "ailson",
+        "id": 2,
         "password": "adm"
 }
 
-### NIGHTGUARD - Rota de POST para CRIAÇÃO dos guardas.
+### GET 
+GET http://127.0.0.1:5000/administrators HTTP/1.1
+Content-Type: application/json
+
+### PUT 
+PUT http://127.0.0.1:5000/administrators/50 HTTP/1.1
+Content-Type: application/json
+
+{
+        "login": "Ailson",
+        "password": "1010"
+        
+        
+}
+
+### DELETE
+DELETE http://127.0.0.1:5000/administrators/1 HTTP/1.1
+Content-Type: application/json
+
+
+#==================== ROTAS NIGHTGUARD ====================#
+bp_night_guards.route("/post_nightguard", methods=["POST"])(post_nightguards)
+###POST
 POST http://127.0.0.1:5000/post_nightguard HTTP/1.1
 Content-Type: application/json
 
@@ -24,38 +47,30 @@ Content-Type: application/json
     "dateofbirth": "03/02/1980",
     "formofpayment": "dinheiro",
     "dateofpayment": "20",
-    "district": "Azulville"
+    "neighborhood": "Azulville"
 }
-###########################################################
 
-###########################################################
-### ROTAS GET GERAIS
-### NIGHTGUARD - Rota de GET para TODOS os guardas.
+###GET
 GET http://127.0.0.1:5000/get_nightguard?page=1&limit=6 HTTP/1.1
 Content-Type: application/json
 
-### NEIGHBORHOODS - Rota de GET para todos Bairro
+
+#==================== ROTAS NEIGHBORHOODS ====================#
+
+###GET
 GET http://127.0.0.1:5000/get_neighborhood HTTP/1.1
 Content-Type: application/json
 
-###########################################################
 
 
-###########################################################
-### ROTAS GET INDIVIDUAIS
-### NEIGHBORHOODS - Rota de GET para um UNICO Setor
+
+#==================== ROTAS SECTORS ====================#
+
+###GET
 GET http://127.0.0.1:5000/sectors/1 HTTP/1.1
 Content-Type: application/json
 
-### NEIGHBORHOODS - Rota de GET para um UNICO Bairro
-GET http://127.0.0.1:5000/neighborhoods/1 HTTP/1.1
-Content-Type: application/json
-
-###########################################################
-
-###########################################################
-### ROTAS PUT
-### SECTORS - Rota de PUT para os Setores
+###PUT
 PUT http://127.0.0.1:5000/sectors/1 HTTP/1.1
 Content-Type: application/json
 
@@ -65,12 +80,11 @@ Content-Type: application/json
         "sector_name": "Setor 5"
 }
 
-###########################################################
 
-###########################################################
-### ROTAS DELETE
-### ADMINISTRATORS - Rota de DELETE para um ADMINISTRADOR
-DELETE http://127.0.0.1:5000/administrators/1 HTTP/1.1
-Content-Type: application/json
 
-###########################################################
+
+
+
+
+
+
