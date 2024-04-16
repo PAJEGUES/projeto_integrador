@@ -42,7 +42,7 @@ def get_sectors ():
     if limit: limit = int (limit)
 
     if page and limit:
-        start = limit * (page - 1)
+        start = limit * (page - 1) from routes.route_neighborhoods import bp_neighborhoods
         end = start + limit
  
     vector_sector_name = []
