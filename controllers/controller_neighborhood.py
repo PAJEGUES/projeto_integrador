@@ -23,7 +23,7 @@ def set_neighborhoods ():
 
 
 #ROTA GET
-def get_neighborhoods_by_id (id):
+def get_neighborhood (id):
 
     i = 0
     for neighborhood in neighborhoods:
@@ -47,7 +47,7 @@ def put_neighborhoods (id):
 
 
 #ROTA DELETE
-def del_neighborhoods (id):
+def delete_neighborhoods_by_id (id):
 
     o_Delneighborhoods = db.get_or_404(neighborhoods, id)
 
