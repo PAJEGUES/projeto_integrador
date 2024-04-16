@@ -41,15 +41,9 @@ sectors = [
     #if page: page = int(page)
     #if limit: limit = int (limit)
 
-<<<<<<< HEAD
-    #if page and limit:
-        #start = limit * (page - 1) from routes.route_neighborhoods import bp_neighborhoods
-        #end = start + limit
-=======
     if page and limit:
         start = limit * (page - 1) 
         end = start + limit
->>>>>>> origin/main
  
     #vector_sector_name = []
     #vector_nightguard_name = []
