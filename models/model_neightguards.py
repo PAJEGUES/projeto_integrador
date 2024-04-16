@@ -1,15 +1,15 @@
 from app import db
 
-class guard(db.model):
+class guard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
-    vehicle = db.Column(db.String(1024))
-    licenseplate = db.Column(db.String(255))
-    email = db.Column(db.String(255))
-    cpf = db.Column(db.String(11))
-    dateofbirth = db.Column(db.String(10))
-    formofpayment = db.Column(db.String(10))
-    neighborhood = db.Column(db.String(255))   
+    vehicle = db.Column(db.String(1024), nullable=False)
+    licenseplate = db.Column(db.Integer, nullable=False)
+    email = db.Column(db.String(255), nullable=False)
+    cpf = db.Column(db.Integer, nullable=False)
+    dateofbirth = db.Column(db.DateTime, nullable=False)
+    formofpayment = db.Column(db.Integer, nullable=False)
+    neighborhood = db.Column(db.String(255), nullable=False)   
 
 
 

@@ -1,6 +1,8 @@
 from flask import Flask, request, jsonify
 from app import db
 from models.models_sector import Sector
+<<<<<<< HEAD
+=======
 
 sectors = [
     {
@@ -42,7 +44,7 @@ def get_sectors ():
     if limit: limit = int (limit)
 
     if page and limit:
-        start = limit * (page - 1)
+        start = limit * (page - 1) from routes.route_neighborhoods import bp_neighborhoods
         end = start + limit
  
     vector_sector_name = []
@@ -76,6 +78,7 @@ def get_sectors ():
     else: 
         return jsonify (vector_id)
     
+>>>>>>> origin/main
     
 # rota POST
 def set_sectors():
@@ -87,22 +90,6 @@ def set_sectors():
 
     return jsonify(o_sector.to_json())
 
-
-
-def put_sectors (id):
-
-    update_sectors = request.get_json()
-
-    i = 0
-
-    for sector in sectors: 
-        if (id == sector["id"]):
-            sectors[i].update(update_sectors)
-            return jsonify(update_sectors)
-        i+=1
-    return jsonify("Erro: Setor não encontrado"), 404
-
-
 # rota GET
 def get_sectors ():
     sectors = Sector.query.all()
@@ -110,15 +97,21 @@ def get_sectors ():
     return jsonify ([Sector.to_json()for sector in sectors])
 
 
+# ROTA Delete 
 
-      
+    return jsonify ("Setor deletado com sucesso"),200
 
-def delete_sectors_by_id (id):
- 
-    i = 0
-    for sector in sectors:
-        if(id == sector["id"]):
-            del sectors[i]
-            return jsonify(sectors)
-        i+=1
-    return ("Erro, Setor não encontrado"), 404
+# rota PUT
+def put_sectors (night_guard,neighborhood):
+
+    update_sectors = request.get_json()
+
+    o_sectors = db.get_or_404(Sector, night_guard, neighborhood)
+
+    o_sectors.night_guard = update_sectors.get('night_guard')
+    o_sectors.neighborhood =update_sectors.get('neighborhood')
+
+    db.session.commit
+
+    return jsonify(o_sectors.to_json()), 201
+

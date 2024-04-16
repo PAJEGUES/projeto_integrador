@@ -8,8 +8,7 @@ class Administrator (db.Model):
     def to_json(self):
         return {
             'id':self.id,
-            'login':self.login,
-            'password':self.password
+            'login':self.login
         }
     
     @staticmethod

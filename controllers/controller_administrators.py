@@ -101,7 +101,7 @@ def get_administrators ():
 
     #for administrator in vector_login:
 
-    #    if password and password == administrator ["password"]:
+    #    if password and password == adm"/sectors",inistrator ["password"]:
     #        vector_password.append(administrator)
     #    elif not password:
     #        vector_password.append(administrator)
