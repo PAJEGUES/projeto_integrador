@@ -1,7 +1,7 @@
 from app import db
 
 class Sector (db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)    
     neighborhood_name = db.Column(db.String(255), nullable=False)
     sector_name = db.Column(db.String(255), nullable=False)
 
