@@ -29,7 +29,7 @@ sectors = [
     
 ]
 
-#def get_sectors ():
+def get_sectors ():
     #nightguard_name = request.args.get("nightguard_name", None)
     #sector_name = request.args.get("sector_name", None)
     #id = request.args.get("id", None)
