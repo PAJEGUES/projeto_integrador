@@ -108,6 +108,22 @@ Content-Type: application/json
         "sector_name": "Setor 5"
 }
 
+### POSTS
+POST http://127.0.0.1:5000/set_sectors HTTP/1.1
+Content-Type: application/json
+token: senac123
+
+{
+        
+        "id": 2,
+        "sector_name": "Setor 3"
+}
+
+### DELETE
+DELETE http://127.0.0.1:5000/delete_sectors_by_id/1 HTTP/1.1
+Content-Type: application/json
+
+
 
 
 
