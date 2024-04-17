@@ -26,8 +26,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app,db)
 
-    secured_routers = ["/login"]        
-        
+    secured_routers = ["/neighborhoods"]            
     app.wsgi_app = MiddlewareManager(app)
     app.wsgi_app.add_middleware(MetricsMidleware ,secured_routers = secured_routers)
 
