@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from app import db
 
 neighborhoods = [
     {
@@ -10,58 +11,19 @@ neighborhoods = [
 
 ## Rota POST Bairros 
 
-def set_neighborhoods():
- 
-    new_neighborhood  = request.get_json()
- 
-    if ('neighborhood_name' not in new_neighborhood ) or (not new_neighborhood ['neighborhood_name']):
-          return jsonify({"error":"Não tem neighborhood_name"}), 400
-   
-    for neighborhood in neighborhoods :
-        if (new_neighborhood ['id'] == neighborhood['id']):
-            return jsonify("Erro, um bairro com esse id ja esta cadastrado!"), 409
- 
-    neighborhoods.append(new_neighborhood)
- 
-    return jsonify(neighborhoods)
+def set_neighborhoods ():
+
+    new_neighborhoods = request.get_json()
+
+    o_neighborhoods = neighborhoods.from_json(new_neighborhoods)
+    db.session.add(o_neighborhoods)
+    db.session.commit()
+
+    return jsonify(o_neighborhoods.to_json()), 201
 
 
-def get_neighborhood ():
-
-    neighborhood_name = request.args.get("neighborhood_name", None)
-    sector_name = request.args.get("sector_name", None)
-    page = request.args.get("page", None)
-    limit = request.args.get("limit", None)
-
-    if page: page = int(page)
-    if limit: limit = int(limit)
-
-    if page and limit:
-        start = limit * (page - 1)
-        end = start + limit 
-
-
-    vector_neighborhood = []
-    vector_sectorname = []
-
-    for neighborhood in neighborhoods:
-        if neighborhood_name and neighborhood_name == neighborhood ["neighborhood_name"]:
-            vector_neighborhood.append(neighborhood)
-        elif not neighborhood_name:
-            vector_neighborhood.append(neighborhood)
-
-    for neighborhood in vector_neighborhood:
-        if sector_name and sector_name == neighborhood ["sector_name"]:
-            vector_sectorname.append(neighborhood)
-        elif not sector_name:        
-            vector_sectorname.append(neighborhood)
-    
-    if page and limit:
-        return jsonify (vector_sectorname[start:end]) 
-    else:
-        return jsonify (vector_sectorname)
-
-def get_neighborhoods_by_id (id):
+#ROTA GET
+def get_neighborhood (id):
 
     i = 0
     for neighborhood in neighborhoods:
@@ -71,25 +33,25 @@ def get_neighborhoods_by_id (id):
     return ("Erro, Bairro não encontrado"), 404
 
 
-def delete_neighborhoods_by_id (id):
-
-    i = 0
-    for neighborhood in neighborhoods:
-        if(id == neighborhood["id"]):
-            del neighborhoods[i]
-            return jsonify(neighborhoods)
-        i+=1
-    return ("Erro, Bairro não encontrado"), 404
-
+#ROTA PUT
 def put_neighborhoods (id):
 
-    update_neighborhoods = request.get_json()
+    update_neighborhoods= request.get_json()
 
-    i = 0
+    o_Putneighborhoods= db.get_or_404(neighborhoods, id)
 
-    for neighborhood in neighborhoods: 
-        if (id == neighborhood["id"]):
-            neighborhoods[i].update(update_neighborhoods)
-            return jsonify(update_neighborhoods)
-        i+=1
-    return jsonify("Erro: Bairro não encontrado"), 404
+    db.session.commit
+
+    return jsonify(o_Putneighborhoods.to_json()), 201
+
+
+
+#ROTA DELETE
+def delete_neighborhoods_by_id (id):
+
+    o_Delneighborhoods = db.get_or_404(neighborhoods, id)
+
+    db.session.delete(o_Delneighborhoods)
+    db.session.commit()
+
+    return jsonify ("Deletado com sucesso"),200

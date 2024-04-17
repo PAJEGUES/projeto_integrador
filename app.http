@@ -57,9 +57,38 @@ Content-Type: application/json
 
 #==================== ROTAS NEIGHBORHOODS ====================#
 
+
+
+### POSTS
+POST  http://127.0.0.1:5000/set_neighborhoods HTTP/1.1
+Content-Type: application/json
+token: 123
+
+{
+        "neighborhood_name": "Maria Estella Faga",
+        "id": 1,
+        "sector_name": "Setor 1"
+}
+
 ###GET
 GET http://127.0.0.1:5000/get_neighborhood HTTP/1.1
 Content-Type: application/json
+
+### PUT 
+PUT http://127.0.0.1:5000/put_neighborhoods/50 HTTP/1.1
+Content-Type: application/json
+
+{
+        "login": "Ailson",
+        "password": "1010"
+        
+        
+}
+
+### DELETE
+DELETE http://127.0.0.1:5000/delete_neighborhoods_by_id/1 HTTP/1.1
+Content-Type: application/json
+
 
 
 
@@ -79,6 +108,22 @@ Content-Type: application/json
         "nightguard_name": "Ailson",
         "sector_name": "Setor 5"
 }
+
+### POSTS
+POST http://127.0.0.1:5000/set_sectors HTTP/1.1
+Content-Type: application/json
+token: senac123
+
+{
+        
+        "id": 2,
+        "sector_name": "Setor 3"
+}
+
+### DELETE
+DELETE http://127.0.0.1:5000/delete_sectors_by_id/1 HTTP/1.1
+Content-Type: application/json
+
 
 
 
