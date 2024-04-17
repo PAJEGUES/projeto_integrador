@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from models.model_neightguards import guard
+from models.models_nightguards import guard
 from app import db
 
 
