@@ -14,7 +14,7 @@ class MetricsMidleware(BaseHTTPMiddleware):
             if(request.headers.get('token') == "senac123"):
                 return call_next(request)
             else:
-                return jsonify({"Error": "Usuario não autenticado"})
+                return jsonify({"Error": "Usuario nao autenticado"})
         else:
             return call_next(request) 
         
