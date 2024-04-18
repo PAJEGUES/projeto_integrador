@@ -7,11 +7,10 @@ class guard(db.Model):
     licenseplate = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(255), nullable=False)
     cpf = db.Column(db.Integer, nullable=False)
+    password = db.Column(db.String(255), nullable = False)
     dateofbirth = db.Column(db.DateTime, nullable=False)
     formofpayment = db.Column(db.Integer, nullable=False)
     neighborhood = db.Column(db.String(255), nullable=False)   
-
-
 
     def to_json(self):
         {
@@ -35,8 +34,9 @@ class guard(db.Model):
         dateofbirth = jason_data.get('dateofbirth')
         formofpayment = jason_data.get('formofpayment')
         neighborhood = jason_data.get('neighborhood')
-        return guard(id=id,name=name,vehicle=vehicle,licenseplate=licenseplate,dateofbirth=dateofbirth,formofpayment=formofpayment,neighborhood=neighborhood)
-    
+        password = jason_data.get('password')
+        return guard(id=id,name=name, password=password, vehicle=vehicle,licenseplate=licenseplate,dateofbirth=dateofbirth,formofpayment=formofpayment,neighborhood=neighborhood)
+
     
     
     

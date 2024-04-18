@@ -1,6 +1,6 @@
 from flask_http_middleware import MiddlewareManager, BaseHTTPMiddleware
 from flask import jsonify
-from models.models_token import Token
+from models.models_user import Token
 from datetime import datetime, timedelta
 
 class MetricsMidleware(BaseHTTPMiddleware):
