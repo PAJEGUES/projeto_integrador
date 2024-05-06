@@ -1,6 +1,6 @@
 from app import db 
 
-class Neightborhood (db.Model):
+class Neighborhood (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     neighborhood_name = db.Column(db.String(255), nullable=False)
     sector_name = db.Column(db.String(255), nullable=False)

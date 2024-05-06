@@ -1,6 +1,6 @@
 from app import db
 
-class guard(db.Model):
+class Nightguard(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     vehicle = db.Column(db.String(1024), nullable=False)
