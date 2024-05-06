@@ -1,11 +1,12 @@
 from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from flask_http_middleware import MiddlewareManager, BaseHTTPMiddleware
-from middleware import MetricsMidleware
+from flask_http_middleware import MiddlewareManager
+from flask_bcrypt import Bcrypt
 
 db = SQLAlchemy()
 migrate = Migrate()
+bcrypt = Bcrypt()
 
 def create_app():
 
@@ -13,6 +14,7 @@ def create_app():
     from routes.route_neighborhoods import bp_neighborhoods
     from routes.route_night_guards import bp_night_guards
     from routes.route_sectors import bp_sectors 
+    from middleware import MetricsMidleware
 
     app = Flask(__name__)
 
@@ -25,6 +27,7 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app,db)
+    bcrypt.init_app(app)
 
     secured_routers = ["/login"]            
     app.wsgi_app = MiddlewareManager(app)
