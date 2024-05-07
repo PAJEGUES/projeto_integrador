@@ -1,134 +1,24 @@
-
-#========================= ROTAS ADMINISTRATORS =========================# 
-
-### POSTS
-POST  http://127.0.0.1:5000/administrators HTTP/1.1
-Content-Type: application/json
-
-{
-        "login": "ailson",
-        "id": 6,
-        "password": "adm"
-}
-
-### GET 
-GET http://127.0.0.1:5000/administrators HTTP/1.1
-Content-Type: application/json
-
-### PUT 
-PUT http://127.0.0.1:5000/administrators/50 HTTP/1.1
-Content-Type: application/json
-
-{
-        "login": "Ailson",
-        "password": "1010"
-        
-        
-}
-
-### DELETE
-DELETE http://127.0.0.1:5000/administrators/1 HTTP/1.1
-Content-Type: application/json
-
-
-#==================== ROTAS NIGHTGUARD ====================#
-bp_night_guards.route("/post_nightguard", methods=["POST"])(post_nightguards)
-###POST
-POST http://127.0.0.1:5000/post_nightguard HTTP/1.1
-Content-Type: application/json
-
-{
-    "name": "ROGER",
-    "vehicle": "CB-500",
-    "licenseplate": "RMR-1909",
-    "email": "roger.rocha@gmail.com",
-    "password": "cb123",
-    "cpf": "987.654.321.00",
-    "dateofbirth": "03/02/1980",
-    "formofpayment": "dinheiro",
-    "dateofpayment": "20",
-    "neighborhood": "Azulville"
-}
-
-###GET
-GET http://127.0.0.1:5000/get_nightguard?page=1&limit=6 HTTP/1.1
-Content-Type: application/json
-
-
-#==================== ROTAS NEIGHBORHOODS ====================#
-
-
-
-### POSTS
-POST  http://127.0.0.1:5000/neighborhoods HTTP/1.1
+######################### ROTAS DE AUTENTICAÇÃO #########################
+### Criação de Usuário
+POST  http://127.0.0.1:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
         "id": 1,
-        "neighborhood_name": "Maria Estella Faga",
-        "sector_name": "Setor 1"
+        "password": "adm",
+        "email": "adm@email.com"
 }
 
-###GET
-GET http://127.0.0.1:5000/get_neighborhood HTTP/1.1
-Content-Type: application/json
-
-### PUT 
-PUT http://127.0.0.1:5000/neighborhoods/50 HTTP/1.1
+### Autenticação do usuário
+POST  http://127.0.0.1:5000/login HTTP/1.1
 Content-Type: application/json
 
 {
-        "neighborhood_name": "Maria Estella Faga",
-        "sector_name": "Setor 1"
-        
-        
+        "id": 1,
+        "email": "adm@email.com",
+        "password": "adm"
 }
 
-### DELETE
-DELETE http://127.0.0.1:5000/neighborhoods/1 HTTP/1.1
-Content-Type: application/json
-
-
-
-
-
-#==================== ROTAS SECTORS ====================#
-
-###GET
-GET http://127.0.0.1:5000/sectors/1 HTTP/1.1
-Content-Type: application/json
-
-###PUT
-PUT http://127.0.0.1:5000/sectors/1 HTTP/1.1
-Content-Type: application/json
-
-{
-        "id": 5,
-        "nightguard_name": "Ailson",
-        "sector_name": "Setor 5"
-}
-
-### POSTS
-POST http://127.0.0.1:5000/set_sectors HTTP/1.1
-Content-Type: application/json
-token: senac123
-
-{
-        
-        "id": 2,
-        "sector_name": "Setor 3"
-}
-
-### DELETE
-DELETE http://127.0.0.1:5000/delete_sectors_by_id/1 HTTP/1.1
-Content-Type: application/json
-
-
-
-
-
-
-
-
+#########################################################################
 
 

@@ -1,13 +1,12 @@
-from flask_http_middleware import MiddlewareManager, BaseHTTPMiddleware
+from flask_http_middleware import BaseHTTPMiddleware
 from flask import jsonify
 from models.models_user import Token
-from datetime import datetime, timedelta
+from datetime import datetime
 
 class MetricsMidleware(BaseHTTPMiddleware):
     def __init__(self, secured_routers = []):
         super().__init__()
         self.secured_routers = secured_routers
-
 
     def dispatch(self, request, call_next):
         if not (request.path in self.secured_routers):

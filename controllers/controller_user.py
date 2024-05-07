@@ -4,6 +4,14 @@ from models.models_user import User, Token
 from app import db, bcrypt
 import time
 
+def set_user():
+    juser = request.get_json()
+    ouser=  User.from_json(juser)
+    ouser.password = bcrypt.generate_password_hash(juser.get('password'))
+    db.session.add(ouser)
+    db.session.commit()
+    return jsonify (ouser.to_json())
+
 def login_user():
     body = request.get_json()
     jemail =  body.get('email')
@@ -16,6 +24,6 @@ def login_user():
         otoken = Token(user_id = user_id, token = token, expiration = expiration)
         db.session.add(otoken)
         db.session.commit()
-        return jsonify({"Message": "Usuario Logado ", "token": str(token)})
+        return jsonify({"Message": "Usuario Autenticado com sucesso! ", "token": str(token)})
     else:
         return jsonify({"Erro": "Senha Incorreta"}), 401
