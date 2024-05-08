@@ -19,4 +19,4 @@ class Neighborhood (db.Model):
         id = json_data.get('id')
         neighborhood_name = json_data.get('neighborhood_name')
         sector_name = json_data.get('sector_name')
-        return Neightborhood (id=id, neighborhood_name=neighborhood_name, sector_name=sector_name)
+        return Neighborhood (id=id, neighborhood_name=neighborhood_name, sector_name=sector_name)

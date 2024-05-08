@@ -11,7 +11,7 @@ def set_neighborhoods ():
 
     return jsonify(o_neighborhoods.to_json()), 201
 
-def get_neighborhood (id):
+def get_neighborhood ():
 
     neighborhood = Neighborhood.query.all() 
     return jsonify ([neighborhoods.to_json() for neighborhoods in neighborhood])

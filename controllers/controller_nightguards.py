@@ -3,9 +3,8 @@ from models.models_nightguards import Nightguard
 from app import db
 
 def set_nightguard():
-
     new_guard = request.get_json()
-    o_guard = Nightguard.from_jason(new_guard)
+    o_guard = Nightguard.from_json(new_guard)
     db.session.add(o_guard)
     db.session.commit()
     return jsonify(o_guard.to_json()), 201
