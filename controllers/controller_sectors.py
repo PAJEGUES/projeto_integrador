@@ -10,8 +10,8 @@ def set_sectors():
     return jsonify(o_sector.to_json())
 
 def get_sectors ():
-    sectors = Sector.query.all()
-    return jsonify ([Sector.to_json()for sector in sectors])
+    sector = Sector.query.all()
+    return jsonify ([sectors.to_json()for sectors in sector])
 
 def get_sectors_by_id():
     sectors = Sector.query.first_or_404(id)
