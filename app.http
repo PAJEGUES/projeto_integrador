@@ -25,6 +25,7 @@ Content-Type: application/json
 ### Post Administrador
 POST  http://127.0.0.1:5000/post_administrators HTTP/1.1
 Content-Type: application/json
+token: 123
 
 {
         "id": 1,
@@ -67,6 +68,53 @@ Content-Type: application/json
         "nightguard": "teste",
         "sector_name": "teste"
 }
+
+#========================= ROTAS CLIENTS =========================# 
+
+### POSTS
+POST  http://127.0.0.1:5000/client HTTP/1.1
+Content-Type: application/json
+
+{
+        "id":1,
+        "name":"Ailson Lima",
+        "road":"José Hildebrand",
+        "number":"1068",
+        "neighborhood":"Itamaraty",
+        "contact":"(16) 98185-8000",
+        "paymentamount":"R$50",
+        "dateofbirth":"10",
+        "formofpayment":"PIX"
+}
+
+### GET 
+GET http://127.0.0.1:5000/client HTTP/1.1
+Content-Type: application/json
+
+### PUT 
+PUT http://127.0.0.1:5000/client/1 HTTP/1.1
+Content-Type: application/json
+
+{
+        
+        "name":"",
+        "road":"",
+        "number":"",
+        "neighborhood":"",
+        "contact":"",
+        "paymentamount":"R$",
+        "dateofbirth":"",
+        "formofpayment":""
+        
+        
+}
+
+### DELETE
+DELETE http://127.0.0.1:5000/client/1 HTTP/1.1
+Content-Type: application/json
+
+
+
 
 
 #########################################################################

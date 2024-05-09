@@ -14,6 +14,7 @@ def create_app():
     from routes.route_neighborhoods import bp_neighborhoods
     from routes.route_night_guards import bp_night_guards
     from routes.route_sectors import bp_sectors 
+    from routes.route_client import bp_client
     from routes.route_user import bp_users
     from middleware import MetricsMidleware
 
@@ -23,6 +24,8 @@ def create_app():
     app.register_blueprint(bp_neighborhoods)
     app.register_blueprint(bp_night_guards)
     app.register_blueprint(bp_sectors)
+    app.register_blueprint(bp_client)
+
     app.register_blueprint(bp_users)
 
     app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://adm:Adm12345!@10.60.46.36/projetoDesktop'
