@@ -37,4 +37,4 @@ def delete_nightguards_by_id (id):
 def get_nightguards_by_id (id):
 
     nightguard = Nightguard.query.first_or_404(id) 
-    return jsonify (nightguard.to_json)
+    return jsonify (nightguard.to_json())

@@ -14,7 +14,7 @@ def set_administrators ():
 def get_administrators_by_id(id):
 
     administrator = Administrator.query.first_or_404(id)
-    return jsonify(administrator.to_json)
+    return jsonify(administrator.to_json())
 
 def put_administrators (id):
 

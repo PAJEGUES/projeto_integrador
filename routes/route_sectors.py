@@ -7,7 +7,7 @@ bp_sectors.route("/post_sectors",methods=["POST"])(set_sectors)
 
 bp_sectors.route("/get_sector", methods=["GET"]) (get_sectors)
 
-bp_sectors.route ("/get_sector_by_id", methods=["GET"])(get_sectors_by_id)
+bp_sectors.route ("/get_sectors_by_id/<int:id>", methods=["GET"])(get_sectors_by_id)
 
 bp_sectors.route("/put_sectors/<int:id>", methods=["PUT"])(put_sectors)
 

@@ -11,16 +11,16 @@ def set_sectors():
 
 def get_sectors ():
     sector = Sector.query.all()
-    return jsonify ([sectors.to_json()for sectors in sector])
+    return jsonify ([sectors.to_json() for sectors in sector])
 
-def get_sectors_by_id():
+def get_sectors_by_id(id):
     sectors = Sector.query.first_or_404(id)
-    return jsonify(sectors.to_json)
+    return jsonify(sectors.to_json())
 
 def delete_sectors_by_id(id):
 
     sectors = Sector.query.first_or_404(id)
-    return jsonify(sectors.to_json)
+    return jsonify(sectors.to_json())
 
 def put_sectors (night_guard,neighborhood):
 

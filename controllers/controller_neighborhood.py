@@ -37,4 +37,4 @@ def delete_neighborhoods_by_id (id):
 def get_neighborhoods_by_id (id):
 
     neighborhood = Neighborhood.query.first_or_404(id) 
-    return jsonify (neighborhood.to_json)
+    return jsonify (neighborhood.to_json())
