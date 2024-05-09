@@ -9,7 +9,7 @@ class Client(db.Model):
     contact = db.Column(db.Integer, nullable=False)
     paymentamount = db.Column(db.Integer, nullable=False)
     dateofbirth = db.Column(db.DateTime, nullable=False)
-    formofpayment = db.Column(db.Integer, nullable=False)
+    formofpayment = db.Column(db.String(255), nullable=False)
        
 
 

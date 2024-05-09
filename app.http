@@ -81,10 +81,10 @@ Content-Type: application/json
         "road":"José Hildebrand",
         "number":"1068",
         "neighborhood":"Itamaraty",
-        "contact":"(16) 98185-8000",
-        "paymentamount":"R$50",
-        "dateofbirth":"10",
-        "formofpayment":"PIX"
+        "contact":"981858000",
+        "paymentamount":"50",
+        "dateofbirth":"2000-10-10",
+        "formofpayment":"CREDITO"
 }
 
 ### GET 
