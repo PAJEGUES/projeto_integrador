@@ -22,7 +22,7 @@ def put_administrators (id):
     o_PutAdministrators = db.get_or_404(Administrator, id)
     o_PutAdministrators.login = update_administrators.get('login')
     o_PutAdministrators.password = update_administrators.get('password')
-    db.session.commit
+    db.session.commit()
     return jsonify(o_PutAdministrators.to_json()), 201
     
 

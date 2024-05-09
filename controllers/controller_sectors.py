@@ -22,13 +22,12 @@ def delete_sectors_by_id(id):
     sectors = Sector.query.first_or_404(id)
     return jsonify(sectors.to_json())
 
-def put_sectors (night_guard,neighborhood):
+def put_sectors (id):
 
     update_sectors = request.get_json()
-    o_sectors = db.get_or_404(Sector, night_guard, neighborhood)
+    o_sectors = db.get_or_404(Sector, id)
     o_sectors.night_guard = update_sectors.get('night_guard')
     o_sectors.neighborhood =update_sectors.get('neighborhood')
-    db.session.commit
-
+    db.session.commit()
     return jsonify(o_sectors.to_json()), 201
 
