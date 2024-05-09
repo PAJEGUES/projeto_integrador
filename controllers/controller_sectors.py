@@ -19,8 +19,10 @@ def get_sectors_by_id(id):
 
 def delete_sectors_by_id(id):
 
-    sectors = Sector.query.first_or_404(id)
-    return jsonify(sectors.to_json())
+    o_sector = db.get_or_404(Sector,id)
+    db.session.delete(o_sector)
+    db.session.commit()
+    return jsonify("Deletado com sucesso"),200
 
 def put_sectors (id):
 

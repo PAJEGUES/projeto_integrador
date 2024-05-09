@@ -207,6 +207,20 @@ Content-Type: application/json
 
 ########################### ROTAS DE DELETE #############################
 
+### Delete Administrator
+DELETE  http://127.0.0.1:5000/del_administrators/1 HTTP/1.1
+Content-Type: application/json
 
+### Delete Neighborhood
+DELETE  http://127.0.0.1:5000/del_neighborhoods/1 HTTP/1.1
+Content-Type: application/json
+
+### Delete Nightguard
+DELETE  http://127.0.0.1:5000/del_nightguards/1 HTTP/1.1
+Content-Type: application/json
+
+### Delete Sectors
+DELETE  http://127.0.0.1:5000/del_sectors/1 HTTP/1.1
+Content-Type: application/json
 
 #########################################################################

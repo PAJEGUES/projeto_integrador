@@ -31,8 +31,8 @@ def delete_neighborhoods_by_id (id):
     o_Delneighborhoods = db.get_or_404(Neighborhood, id)
     db.session.delete(o_Delneighborhoods)
     db.session.commit()
-
     return jsonify ("Deletado com sucesso"),200
+
 
 def get_neighborhoods_by_id (id):
 

@@ -11,7 +11,7 @@ bp_neighborhoods.route("/get_neighborhoods_by_id/<int:id>", methods = ["GET"])(g
 
 bp_neighborhoods.route("/put_neighborhoods/<int:id>", methods=["PUT"])(put_neighborhoods)
 
-bp_neighborhoods.route("/del_neighborhoods",methods=["DELETE"])(delete_neighborhoods_by_id)
+bp_neighborhoods.route("/del_neighborhoods/<int:id>",methods=["DELETE"])(delete_neighborhoods_by_id)
 
 
 
