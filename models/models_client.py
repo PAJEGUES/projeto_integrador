@@ -8,7 +8,7 @@ class Client(db.Model):
     neighborhood = db.Column(db.String(255), nullable=False)
     contact = db.Column(db.Integer, nullable=False)
     paymentamount = db.Column(db.Integer, nullable=False)
-    dateofbirth = db.Column(db.DateTime, nullable=False)
+    dateofbirth = db.Column(db.Date, nullable=False)
     formofpayment = db.Column(db.String(255), nullable=False)
        
 
