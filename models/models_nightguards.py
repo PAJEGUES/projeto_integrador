@@ -8,7 +8,7 @@ class Nightguard(db.Model):
     email = db.Column(db.String(255), nullable=False)
     cpf = db.Column(db.String(255), nullable=False)
     password = db.Column(db.String(255), nullable = False)
-    dateofbirth = db.Column(db.DateTime, nullable=False)
+    dateofbirth = db.Column(db.Date, nullable=False)
     formofpayment = db.Column(db.String(255), nullable=False) 
 
     def to_json(self):

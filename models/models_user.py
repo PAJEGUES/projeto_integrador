@@ -9,9 +9,7 @@ class User (db.Model):
     def to_json(self):
         return {
             'id':self.id,
-            'email':self.email,
-            'password': self.password
-           
+            'email':self.email  
         }
     
     @staticmethod

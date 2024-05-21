@@ -4,19 +4,20 @@ POST  http://127.0.0.1:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
-        "id": 2,
-        "email": "jose@email.com",
-        "password": "jose"
+        "id": 201,
+        "email": "batata@email.com",
+        "password": "rogerio"
 }
 
 ### Autenticação do usuário
 POST  http://127.0.0.1:5000/login HTTP/1.1
 Content-Type: application/json
+Token: "rogerio"
 
 {
-        "id": 2,
-        "email": "jose@email.com",
-        "password": "jose"
+        "id": 200,
+        "email": "rogerio@email.com",
+        "password": "rogerio"
 }
 
 #########################################################################
@@ -25,10 +26,10 @@ Content-Type: application/json
 ### Post Administrador
 POST  http://127.0.0.1:5000/post_administrators HTTP/1.1
 Content-Type: application/json
-token: 123
+token: $2b$12$gUl.XTZ.vONnFvxajrwxFuL.zsMF4vwmvfC/eyLJmQC5MySbgj91u
 
 {
-        "id": 1,
+        "id": 31,
         "login": "jose@email.com",
         "password": "jose"
 }
@@ -38,8 +39,8 @@ POST  http://127.0.0.1:5000/post_neighborhoods HTTP/1.1
 Content-Type: application/json
 
 {
-        "id": 2,
-        "neighborhood_name": "teste2",
+        "id": 2000000000000000006500000000000000000000000000,
+        "neighborhood_name": "454",
         "sector_name": "teste2"
 }
 

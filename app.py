@@ -34,9 +34,9 @@ def create_app():
     migrate.init_app(app,db)
     bcrypt.init_app(app)
 
-    #secured_routers = ["/login"]            
-    #app.wsgi_app = MiddlewareManager(app)
-    #app.wsgi_app.add_middleware(MetricsMidleware ,secured_routers = secured_routers)
+    secured_routers = [""]            
+    app.wsgi_app = MiddlewareManager(app)
+    app.wsgi_app.add_middleware(MetricsMidleware ,secured_routers = secured_routers)
 
     return app
 
