@@ -1,135 +1,226 @@
-
-#========================= ROTAS ADMINISTRATORS =========================# 
-
-### POSTS
-POST  http://127.0.0.1:5000/administrators HTTP/1.1
+######################### ROTAS DE AUTENTICAÇÃO #########################
+### Criação de Usuário
+POST  http://127.0.0.1:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
-        "login": "ailson",
         "id": 2,
-        "password": "adm"
+        "email": "jose@email.com",
+        "password": "jose"
 }
 
-### GET 
-GET http://127.0.0.1:5000/administrators HTTP/1.1
-Content-Type: application/json
-
-### PUT 
-PUT http://127.0.0.1:5000/administrators/50 HTTP/1.1
+### Autenticação do usuário
+POST  http://127.0.0.1:5000/login HTTP/1.1
 Content-Type: application/json
 
 {
-        "login": "Ailson",
-        "password": "1010"
-        
-        
+        "id": 2,
+        "email": "jose@email.com",
+        "password": "jose"
 }
 
-### DELETE
-DELETE http://127.0.0.1:5000/administrators/1 HTTP/1.1
-Content-Type: application/json
+#########################################################################
 
-
-#==================== ROTAS NIGHTGUARD ====================#
-bp_night_guards.route("/post_nightguard", methods=["POST"])(post_nightguards)
-###POST
-POST http://127.0.0.1:5000/post_nightguard HTTP/1.1
-Content-Type: application/json
-
-{
-    "name": "ROGER",
-    "vehicle": "CB-500",
-    "licenseplate": "RMR-1909",
-    "email": "roger.rocha@gmail.com",
-    "password": "cb123",
-    "cpf": "987.654.321.00",
-    "dateofbirth": "03/02/1980",
-    "formofpayment": "dinheiro",
-    "dateofpayment": "20",
-    "neighborhood": "Azulville"
-}
-
-###GET
-GET http://127.0.0.1:5000/get_nightguard?page=1&limit=6 HTTP/1.1
-Content-Type: application/json
-
-
-#==================== ROTAS NEIGHBORHOODS ====================#
-
-
-
-### POSTS
-POST  http://127.0.0.1:5000/set_neighborhoods HTTP/1.1
+############################# ROTAS DE POST #############################
+### Post Administrador
+POST  http://127.0.0.1:5000/post_administrators HTTP/1.1
 Content-Type: application/json
 token: 123
 
 {
-        "neighborhood_name": "Maria Estella Faga",
         "id": 1,
-        "sector_name": "Setor 1"
+        "login": "jose@email.com",
+        "password": "jose"
 }
 
-###GET
-GET http://127.0.0.1:5000/get_neighborhood HTTP/1.1
+### Post Neighborhood
+POST  http://127.0.0.1:5000/post_neighborhoods HTTP/1.1
+Content-Type: application/json
+
+{
+        "id": 2,
+        "neighborhood_name": "teste2",
+        "sector_name": "teste2"
+}
+
+### Post Nightguards
+POST  http://127.0.0.1:5000/post_nightguard HTTP/1.1
+Content-Type: application/json
+
+{
+        "id": 7,
+        "name": "ailson",
+        "vehicle": "titan656",
+        "licenseplate": "abc-1234",
+        "email": "ailson@email.com",
+        "cpf": "000.000.000-00",
+        "password": "ailson123",
+        "dateofbirth": "2000-10-10",
+        "formofpayment": "CREDITO"
+}
+
+### Post Sector
+POST  http://127.0.0.1:5000/post_sectors HTTP/1.1
+Content-Type: application/json
+
+{
+        "id": 1,
+        "nightguard": "teste",
+        "sector_name": "teste"
+}
+
+#========================= ROTAS CLIENTS =========================# 
+
+### POSTS
+POST  http://127.0.0.1:5000/client HTTP/1.1
+Content-Type: application/json
+
+{
+        "id":1,
+        "name":"Ailson Lima",
+        "road":"José Hildebrand",
+        "number":"1068",
+        "neighborhood":"Itamaraty",
+        "contact":"981858000",
+        "paymentamount":"50",
+        "dateofbirth":"2000-10-10",
+        "formofpayment":"CREDITO"
+}
+
+### GET 
+GET http://127.0.0.1:5000/client HTTP/1.1
 Content-Type: application/json
 
 ### PUT 
-PUT http://127.0.0.1:5000/put_neighborhoods/50 HTTP/1.1
+PUT http://127.0.0.1:5000/client/1 HTTP/1.1
 Content-Type: application/json
 
 {
-        "login": "Ailson",
-        "password": "1010"
+        
+        "name":"",
+        "road":"",
+        "number":"",
+        "neighborhood":"",
+        "contact":"",
+        "paymentamount":"R$",
+        "dateofbirth":"",
+        "formofpayment":""
         
         
 }
 
 ### DELETE
-DELETE http://127.0.0.1:5000/delete_neighborhoods_by_id/1 HTTP/1.1
+DELETE http://127.0.0.1:5000/client/1 HTTP/1.1
 Content-Type: application/json
 
 
 
 
 
-#==================== ROTAS SECTORS ====================#
+#########################################################################
 
-###GET
-GET http://127.0.0.1:5000/sectors/1 HTTP/1.1
+########################## ROTAS DE GET GERAL ###########################
+### Get Administrator
+GET  http://127.0.0.1:5000/get_administrators HTTP/1.1
 Content-Type: application/json
 
-###PUT
-PUT http://127.0.0.1:5000/sectors/1 HTTP/1.1
+### Get Neighborhood
+GET  http://127.0.0.1:5000/get_neighborhood HTTP/1.1
+Content-Type: application/json
+
+### Get Nightguard
+GET  http://127.0.0.1:5000/get_nightguard HTTP/1.1
+Content-Type: application/json
+
+### Get Sectors
+GET  http://127.0.0.1:5000/get_sector HTTP/1.1
+Content-Type: application/json
+
+#########################################################################
+
+######################### ROTAS DE GET POR ID ###########################
+
+### Get Administrator
+GET  http://127.0.0.1:5000/get_administrators_by_id/1 HTTP/1.1
+Content-Type: application/json
+
+### Get Neighborhood
+GET  http://127.0.0.1:5000/get_neighborhoods_by_id/1 HTTP/1.1
+Content-Type: application/json
+
+### Get Nightguard
+GET  http://127.0.0.1:5000/get_nightguards_by_id/1 HTTP/1.1
+Content-Type: application/json
+
+### Get Sectors
+GET  http://127.0.0.1:5000/get_sectors_by_id/1 HTTP/1.1
+Content-Type: application/json
+
+#########################################################################
+
+######################### ROTAS DE PUT POR ID ###########################
+
+### Put Administrator
+PUT  http://127.0.0.1:5000/put_administrators/1 HTTP/1.1
 Content-Type: application/json
 
 {
-        "id": 5,
-        "nightguard_name": "Ailson",
-        "sector_name": "Setor 5"
+        "login":"teste",
+        "password": "teste"
 }
 
-### POSTS
-POST http://127.0.0.1:5000/set_sectors HTTP/1.1
+### Put Neighborhood
+PUT  http://127.0.0.1:5000/put_neighborhoods/1 HTTP/1.1
 Content-Type: application/json
-token: senac123
 
 {
-        
-        "id": 2,
-        "sector_name": "Setor 3"
+        "neighborhood_name": "put",
+        "sector_name": "put"
 }
 
-### DELETE
-DELETE http://127.0.0.1:5000/delete_sectors_by_id/1 HTTP/1.1
+### Put Nightguard
+PUT  http://127.0.0.1:5000/put_nightguards/1 HTTP/1.1
 Content-Type: application/json
 
+{
+        "id": 1,
+        "name": "put",
+        "vehicle": "put",
+        "licenseplate": "put-0000",
+        "email": "put",
+        "cpf": "000.000.000-00",
+        "password": "put",
+        "dateofbirth": "2000-10-10",
+        "formofpayment": "put"
+}
 
+### Put Sectors
+PUT  http://127.0.0.1:5000/put_sectors/1 HTTP/1.1
+Content-Type: application/json
 
+{      
+        "nightguard": "put",
+        "sector_name": "put"
+}
 
+#########################################################################
 
+########################### ROTAS DE DELETE #############################
 
+### Delete Administrator
+DELETE  http://127.0.0.1:5000/del_administrators/1 HTTP/1.1
+Content-Type: application/json
 
+### Delete Neighborhood
+DELETE  http://127.0.0.1:5000/del_neighborhoods/1 HTTP/1.1
+Content-Type: application/json
 
+### Delete Nightguard
+DELETE  http://127.0.0.1:5000/del_nightguards/1 HTTP/1.1
+Content-Type: application/json
 
+### Delete Sectors
+DELETE  http://127.0.0.1:5000/del_sectors/1 HTTP/1.1
+Content-Type: application/json
 
+#########################################################################

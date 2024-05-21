@@ -2,13 +2,13 @@ from app import db
 
 class Sector (db.Model):
     id = db.Column(db.Integer, primary_key=True)    
-    neighborhood_name = db.Column(db.String(255), nullable=False)
+    nightguard = db.Column(db.String(255), nullable=False)
     sector_name = db.Column(db.String(255), nullable=False)
 
     def to_json(self):
         return {
             'id':self.id,
-            'neighborhood_name':self.neighborhood_name,
+            'nightguard':self.nightguard,
             'sector_name': self.sector_name
            
         }
@@ -16,10 +16,10 @@ class Sector (db.Model):
     @staticmethod
     def from_json(json_data):
         id = json_data.get('id')
-        neighborhood_name = json_data.get('neighborhood_name')
+        nightguard = json_data.get('nightguard')
         sector_name  = json_data.get('sector_name') 
 
-        return Sector (id=id, neighborhood_name=neighborhood_name, sector_name=sector_name)
+        return Sector (id=id, nightguard=nightguard, sector_name=sector_name)
         
 
 

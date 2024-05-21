@@ -1,6 +1,6 @@
 from app import db 
 
-class Neightborhood (db.Model):
+class Neighborhood (db.Model):
     id = db.Column(db.Integer, primary_key=True)
     neighborhood_name = db.Column(db.String(255), nullable=False)
     sector_name = db.Column(db.String(255), nullable=False)
@@ -19,4 +19,4 @@ class Neightborhood (db.Model):
         id = json_data.get('id')
         neighborhood_name = json_data.get('neighborhood_name')
         sector_name = json_data.get('sector_name')
-        return Neightborhood (id=id, neighborhood_name=neighborhood_name, pector_name=sector_name)
+        return Neighborhood (id=id, neighborhood_name=neighborhood_name, sector_name=sector_name)

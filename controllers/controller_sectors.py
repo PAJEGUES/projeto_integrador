@@ -2,41 +2,34 @@ from flask import Flask, request, jsonify
 from app import db
 from models.models_sector import Sector
 
-#def get_sectors ():
-
 def set_sectors():
     Model_sector= request.get_json()
-
     o_sector = Sector.from_json(Model_sector)
     db.session.add(o_sector)
     db.session.commit()
-
     return jsonify(o_sector.to_json())
 
-# rota GET
 def get_sectors ():
-    sectors = Sector.query.all()
+    sector = Sector.query.all()
+    return jsonify ([sectors.to_json() for sectors in sector])
 
-    return jsonify ([Sector.to_json()for sector in sectors])
+def get_sectors_by_id(id):
+    sectors = Sector.query.first_or_404(id)
+    return jsonify(sectors.to_json())
 
-
-# ROTA Delete 
 def delete_sectors_by_id(id):
 
-    return jsonify ("Setor deletado com sucesso"),200
+    o_sector = db.get_or_404(Sector,id)
+    db.session.delete(o_sector)
+    db.session.commit()
+    return jsonify("Deletado com sucesso"),200
 
-
-# rota PUT
-def put_sectors (night_guard,neighborhood):
+def put_sectors (id):
 
     update_sectors = request.get_json()
-
-    o_sectors = db.get_or_404(Sector, night_guard, neighborhood)
-
+    o_sectors = db.get_or_404(Sector, id)
     o_sectors.night_guard = update_sectors.get('night_guard')
     o_sectors.neighborhood =update_sectors.get('neighborhood')
-
-    db.session.commit
-
+    db.session.commit()
     return jsonify(o_sectors.to_json()), 201
 
