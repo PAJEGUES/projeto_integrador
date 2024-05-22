@@ -73,18 +73,18 @@ Content-Type: application/json
 #========================= ROTAS CLIENTS =========================# 
 
 ### POSTS
-POST  http://127.0.0.1:5000/client HTTP/1.1
+POST  http://127.0.0.1:5000/post_client HTTP/1.1
 Content-Type: application/json
 
 {
-        "id":1,
+        "id":5,
         "name":"Ailson Lima",
-        "road":"José Hildebrand",
-        "number":"1068",
+        "address":"José Hildebrand",
+        "housenumber":"1068",
         "neighborhood":"Itamaraty",
-        "contact":"981858000",
+        "telephone":"981858000",
         "paymentamount":"50",
-        "dateofbirth":"2000-10-10",
+        "dateofpayment":"20",
         "formofpayment":"CREDITO"
 }
 

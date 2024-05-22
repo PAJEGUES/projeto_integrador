@@ -3,7 +3,7 @@ from controllers.controller_client import set_client, put_client, del_client, ge
 
 bp_client= Blueprint ("bp_client",__name__)
 
-bp_client.route("/set_client", methods=["POST"])(set_client)
+bp_client.route("/post_client", methods=["POST"])(set_client)
 
 bp_client.route("/get_client", methods=["GET"])(get_client) 
 
