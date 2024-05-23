@@ -17,8 +17,10 @@ def create_app():
     from routes.route_client import bp_client
     from routes.route_user import bp_users
     from middleware import MetricsMidleware
+    from flask_cors import CORS
 
     app = Flask(__name__)
+    CORS(app, resources={r"/*": {"origins": "*", "allow_headers": ["Content-Type", "Token"]}})
 
     app.register_blueprint(bp_administrators)
     app.register_blueprint(bp_neighborhoods)
