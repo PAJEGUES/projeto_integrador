@@ -2,14 +2,14 @@ from app import db
 
 class Client(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(255), nullable=False)
+    name = db.Column(db.String(1024), nullable=False)
     address = db.Column(db.String(1024), nullable=False)
     housenumber = db.Column(db.Integer, nullable=False)
-    neighborhood = db.Column(db.String(255), nullable=False)
+    neighborhood = db.Column(db.String(1024), nullable=False)
     telephone = db.Column(db.Integer, nullable=False)
     paymentamount = db.Column(db.Integer, nullable=False)
     dateofpayment = db.Column(db.Integer, nullable=False)
-    formofpayment = db.Column(db.String(255), nullable=False)
+    formofpayment = db.Column(db.String(1024), nullable=False)
        
     def to_json(self):
         return {
