@@ -41,5 +41,5 @@ def del_client (id):
 
 def get_client_by_id (id):
 
-    client = Client.query.first_or_404(id) 
+    client = Client.query.get_or_404(id) 
     return jsonify (client.to_json())

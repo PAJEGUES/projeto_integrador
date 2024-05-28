@@ -1,11 +1,13 @@
 from flask import Blueprint
-from controllers.controller_client import set_client, put_client, del_client, get_client 
+from controllers.controller_client import set_client, put_client, del_client, get_client, get_client_by_id 
 
 bp_client= Blueprint ("bp_client",__name__)
 
 bp_client.route("/post_client", methods=["POST"])(set_client)
 
 bp_client.route("/get_client", methods=["GET"])(get_client) 
+
+bp_client.route("/get_client/<int:id>", methods=["GET"])(get_client_by_id) 
 
 bp_client.route("/put_client/<int:id>", methods=["PUT"])(put_client)
 

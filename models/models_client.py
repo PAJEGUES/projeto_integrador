@@ -12,7 +12,7 @@ class Client(db.Model):
     formofpayment = db.Column(db.String(255), nullable=False)
        
     def to_json(self):
-        {
+        return {
             'id':self.id,
             'name':self.name,
             'address':self.address,
