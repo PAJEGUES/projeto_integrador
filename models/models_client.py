@@ -6,7 +6,7 @@ class Client(db.Model):
     address = db.Column(db.String(1024), nullable=False)
     housenumber = db.Column(db.Integer, nullable=False)
     neighborhood = db.Column(db.String(1024), nullable=False)
-    telephone = db.Column(db.Integer, nullable=False)
+    telephone = db.Column(db.String(1024), nullable=False)
     paymentamount = db.Column(db.Integer, nullable=False)
     dateofpayment = db.Column(db.Integer, nullable=False)
     formofpayment = db.Column(db.String(1024), nullable=False)
