@@ -9,8 +9,8 @@ class MetricsMidleware(BaseHTTPMiddleware):
         self.secured_routers = secured_routers
 
     def dispatch(self, request, call_next):
-        if  (request.path in self.secured_routers):
-            jtoken = request.headers.get('token')
+        if not (request.path in self.secured_routers):
+            jtoken = request.headers.get('Token')
             otoken = Token.query.filter(Token.expiration > datetime.now()).filter_by(token=jtoken).first()
             if(otoken != None):
                 return call_next(request)

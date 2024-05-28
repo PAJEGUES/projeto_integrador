@@ -4,20 +4,18 @@ POST  http://127.0.0.1:5000/register HTTP/1.1
 Content-Type: application/json
 
 {
-        "id": 201,
-        "email": "batata@email.com",
-        "password": "rogerio"
+        "id": 300,
+        "email": "joseconsolaro",
+        "password": "joseconsolaro"
 }
 
 ### Autenticação do usuário
 POST  http://127.0.0.1:5000/login HTTP/1.1
 Content-Type: application/json
-Token: "rogerio"
 
 {
-        "id": 200,
-        "email": "rogerio@email.com",
-        "password": "rogerio"
+        "email": "joseconsolaro",
+        "password": "joseconsolaro"
 }
 
 #########################################################################
@@ -124,6 +122,10 @@ Content-Type: application/json
 ### Get Administrator
 GET  http://127.0.0.1:5000/get_administrators HTTP/1.1
 Content-Type: application/json
+Token: $2b$12$b80Rxx5hJtLcEPbsyKgJfuQ1Msfn4sEdrAaWWngUn3ZHWUW/OyX2u
+
+
+
 
 ### Get Neighborhood
 GET  http://127.0.0.1:5000/get_neighborhood HTTP/1.1
