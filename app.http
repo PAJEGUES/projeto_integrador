@@ -91,19 +91,19 @@ GET http://127.0.0.1:5000/get_client HTTP/1.1
 Content-Type: application/json
 
 ### PUT 
-PUT http://127.0.0.1:5000/client/1 HTTP/1.1
+PUT http://127.0.0.1:5000/put_client/9 HTTP/1.1
 Content-Type: application/json
 
 {
         
-        "name":"",
-        "road":"",
-        "number":"",
-        "neighborhood":"",
-        "contact":"",
-        "paymentamount":"R$",
-        "dateofbirth":"",
-        "formofpayment":""
+        "name":"Rafael",
+        "address":"Rua 555",
+        "housenumber":"65",
+        "neighborhood":"Jardim",
+        "telephone":"1698589898",
+        "paymentamount":"50",
+        "dateofpayment":"10",
+        "formofpayment":"Cartão"
         
         
 }
