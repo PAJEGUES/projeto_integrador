@@ -28,7 +28,7 @@ def put_client (id):
     o_PutClient.paymentamount = update_client.get('paymentamount')
     o_PutClient.dateofpayment = update_client.get('dateofpayment')
     o_PutClient.formofpayment = update_client.get('formofpayment')
-    db.session.commit
+    db.session.commit()
     return jsonify(o_PutClient.to_json()), 201
     
 
