@@ -21,7 +21,8 @@ class Nightguard(db.Model):
             'email': self.email,
             'cpf':self.cpf,
             'dateofbirth':self.dateofbirth,
-            'formofpayment':self.formofpayment
+            'formofpayment':self.formofpayment,
+            'password': self.password
         }
 
     @staticmethod

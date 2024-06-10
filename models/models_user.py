@@ -25,4 +25,4 @@ class Token (db.Model):
     __tablename__ = 'tokens'
     token = db.Column(db.String(255), primary_key = True)
     expiration = db.Column(db.DateTime, nullable = False)
-    user_id = db.Column (db.Integer, db.ForeignKey('users.id'))
+    user_id = db.Column (db.Integer, nullable = False)

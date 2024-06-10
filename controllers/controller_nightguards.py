@@ -7,8 +7,9 @@ import time
 
 def set_nightguard():
     new_guard = request.get_json()
-    o_guard = Nightguard.from_json(new_guard)
-    o_guard.password = bcrypt.generate_password_hash(juser.get('password'))
+    password = new_guard.get('password')  # Pegue a senha do JSON
+    o_guard = Nightguard.from_json(new_guard)  # Converta o JSON para o objeto Nightguard
+    o_guard.password = bcrypt.generate_password_hash(password).decode('utf-8')  # Gera o hash da senha e atribua ao objeto
     db.session.add(o_guard)
     db.session.commit()
     return jsonify(o_guard.to_json()), 201

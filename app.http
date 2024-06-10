@@ -2,10 +2,11 @@
 ### Criação de Usuário
 POST  http://127.0.0.1:5000/register HTTP/1.1
 Content-Type: application/json
+Token: "joseconsolaro"
 
 {
-        "id": 30323,
-        "email": "erick",
+        "id": 1,
+        "email": "joseconsolaro",
         "password": "joseconsolaro"
 }
 
@@ -13,10 +14,22 @@ Content-Type: application/json
 POST  http://127.0.0.1:5000/login HTTP/1.1
 Content-Type: application/json
 
+
 {
         "email": "joseconsolaro",
         "password": "joseconsolaro"
 }
+
+### Autenticação do usuário
+POST  http://127.0.0.1:5000/login_nightguard HTTP/1.1
+Content-Type: application/json
+
+{
+        "email": "jose@email.com",
+        "password": "jose123"
+}
+
+
 
 #########################################################################
 
@@ -47,13 +60,13 @@ POST  http://127.0.0.1:5000/post_nightguard HTTP/1.1
 Content-Type: application/json
 
 {
-        "id": 700,
-        "name": "ailson",
+        "id": 993,
+        "name": "Jose",
         "vehicle": "titan656",
         "licenseplate": "abc-1234",
-        "email": "ailson@email.com",
+        "email": "jose@email.com",
         "cpf": "000.000.000-00",
-        "password": "ailson123",
+        "password": "jose123",
         "dateofbirth": "2000-10-10",
         "formofpayment": "CREDITO"
 }
@@ -122,7 +135,7 @@ Content-Type: application/json
 ### Get Administrator
 GET  http://127.0.0.1:5000/get_administrators HTTP/1.1
 Content-Type: application/json
-Token: $2b$12$b80Rxx5hJtLcEPbsyKgJfuQ1Msfn4sEdrAaWWngUn3ZHWUW/OyX2u
+Token: "jose123"
 
 ### Get Client
 GET  http://127.0.0.1:5000/get_client HTTP/1.1
