@@ -24,12 +24,12 @@ Content-Type: application/json
 ### Post Administrador
 POST  http://127.0.0.1:5000/post_administrators HTTP/1.1
 Content-Type: application/json
-token: $2b$12$gUl.XTZ.vONnFvxajrwxFuL.zsMF4vwmvfC/eyLJmQC5MySbgj91u
+token: joseconsolaro
 
 {
-        "id": 31,
-        "login": "jose@email.com",
-        "password": "jose"
+        "id": 1,
+        "login": "adm",
+        "password": "adm"
 }
 
 ### Post Neighborhood
@@ -96,7 +96,7 @@ Content-Type: application/json
 
 {
         
-        "name":"Rafael",
+        "name":"Rafaellll",
         "address":"Rua 555",
         "housenumber":"65",
         "neighborhood":"Jardim",
@@ -234,3 +234,5 @@ DELETE  http://127.0.0.1:5000/del_sectors/1 HTTP/1.1
 Content-Type: application/json
 
 #########################################################################
+
+

@@ -1,13 +1,33 @@
 from flask import Flask, request, jsonify
+from app import db, bcrypt
 from models.models_nightguards import Nightguard
-from app import db
+from models.models_user import Token
+from datetime import datetime, timedelta
+import time
 
 def set_nightguard():
     new_guard = request.get_json()
     o_guard = Nightguard.from_json(new_guard)
+    o_guard.password = bcrypt.generate_password_hash(juser.get('password'))
     db.session.add(o_guard)
     db.session.commit()
     return jsonify(o_guard.to_json()), 201
+
+def login_nightguard():
+    body = request.get_json()
+    jemail =  body.get('email')
+    password = body.get('password')
+    ouser = Nightguard.query.filter_by(email=jemail).first_or_404(description="Usuario nao encontrado!")
+    if (bcrypt.check_password_hash(ouser.password, password)):
+        user_id = ouser.id
+        token = bcrypt.generate_password_hash(password + str(time.time()))
+        expiration = datetime.now() + timedelta(hours=1)
+        otoken = Token(user_id = user_id, token = token, expiration = expiration)
+        db.session.add(otoken)
+        db.session.commit()
+        return jsonify({"Message": "Usuario Autenticado com sucesso! ", "token": str(token)})
+    else:
+        return jsonify({"Erro": "Senha Incorreta"}), 401
 
 def get_nightguards ():
 
